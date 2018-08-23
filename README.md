@@ -13,4 +13,4 @@ Italian clothing merchant invoices manager built with **NodeJS** + **AngularJS**
 <img src="preview_imgs/invoices_table.png" alt="drawing" width="245"/>
 
 ## References:
--  The frontend is forked by the [angular-invoicing project](https://github.com/metaware/angular-invoicing)
+-  The frontend is forked from the [angular-invoicing project](https://github.com/metaware/angular-invoicing)
