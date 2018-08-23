@@ -1,0 +1,53 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">Aggiungi Destinatario</h3>
+</div>
+<div class="row">
+	<div class="col-sm-4">
+			<label>Filtra</label>
+			<input placeholder="Destinatario" type="text" ng-model="filtered.company_info.name">
+	</div>
+	<div class="col-sm-4">
+			<label>Filtra</label>
+			<input placeholder="Data" type="text" ng-model="datefiltered.date">
+	</div>
+</div>
+<div class="modal-body" id="modal-body">
+	<table class="table table-dark">
+		<thead>
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Destinatario</th>
+			<th scope="col">Data</th>
+			<th scope="col">Importo</th>
+			<th scope="col">Actions</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="i in filtered_invoices = ( invoices | filter: (filtered || datefiltered))">
+			<th scope="row">{{$index +1}}</th>
+			<td>{{ i.company_info.name }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.grandTotal | currency: currencySymbol }}</td>
+			<td>
+				<button type="button" ng-click="removeInvoice(i)" class="btn btn-danger">Rimuovi</button>
+				<button type="button" ng-click="modifyInvoice(i)" class="btn btn-info">Visualizza</button>
+			</td>
+
+		</tr>
+		</tbody>
+	  </table>
+</div>
+<div class="modal-footer">
+	<div class="row">
+			<div class="col-sm-8">
+				<p>Fatturato filtrato:  {{ computeTotal() | currency: currencySymbol }}</p>
+			</div>
+			<div class="col-sm-4">
+				<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+				<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+			</div>
+			
+	</div>
+	
+	
+</div>

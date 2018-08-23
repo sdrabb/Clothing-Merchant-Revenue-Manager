@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset='utf-8'>
+  <meta name="description" content="AngularJS and Angular Code Example for creating Invoices and Invoicing Application">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <script type="text/javascript" src="javascripts/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <script type="text/javascript" src="javascripts/main.js"></script>
+</head>
+<body ng-app="invoicing" ng-controller="InvoiceCtrl" >
+  <div class="row">
+      <div class="col-xs-2"  ng-hide="printMode">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox"  ng-model="invoice.enasarco">
+            <label class="form-check-label" for="defaultCheck1">
+              Enasarco
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox"  ng-model="invoice.rit_acc">
+              <label class="form-check-label" for="defaultCheck1">
+                Ritenuta d'acconto
+              </label>
+          </div>
+          <div class="input-container" data-ng-hide='printMode'>
+            <label>Intestatario</label>
+            <select ng-model="invoice.customer_info" ng-options="customer as customer.name for customer in customers | unique:'name'"></select>
+          </div>
+          <div class="input-container" data-ng-hide='printMode'>
+            <label>Destinatario</label>
+            <select ng-model="invoice.company_info" ng-options="company as company.name for company in companies | unique:'name'"></select>
+          </div>
+
+          <a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="openNewDestinatarioDialog()">Aggiungi Destinatario</a>
+          <a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="openNewIntestatarioDialog()">Aggiungi Intestatario</a>
+          <a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="openInvoicesTableDialog()">Visualizza Fatture</a>
+          
+
+
+        </div>
+        <div class="col-xs-8">
+            <% include InvoiceContent.ejs %>
+        </div>
+          
+        
+        <div class="row noPrint actions">
+            
+          <div class="col-xs-2">
+              <a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printInfo()">Print</a>
+          </div>
+        
+        
+            <div class="col-xs-2">
+                <a href="#" class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
+            </div>
+        
+        
+            <div class="col-xs-2">
+                <a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="printMode = true;">Turn On Print Mode</a>
+                <a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printMode = false;">Turn Off Print Mode</a>        
+            </div>
+        
+      
+            <div class="col-xs-2">
+                <a href="#" class="btn btn-primary" ng-click="postInvoice()">Salva Fattura</a> 
+            </div>
+            
+        </div>
+        
+      
+  </div>
+
+  <div ng-hide="printMode" class="copy noPrint">
+    <a href="http://jasdeep.ca/?utm_source=angular_invoicing">Jasdeep Singh</a> &amp;
+    <a href="http://github.com/manpreetrules">Manpreet Singh</a>
+    Made with
+    <span class="love">&#9829;</span> in Toronto by
+    <a href="http://metawarelabs.com/?utm_source=angular_invoicing">Metaware Labs Inc.</a>
+  </div>
+</body>
+</html>

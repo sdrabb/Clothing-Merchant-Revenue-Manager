@@ -1,0 +1,20 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">Aggiungi Destinatario</h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<ul>
+			<li ng-repeat="item in $ctrl.items">
+					<a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+			</li>
+	</ul>
+	<div class="input-container"><input type="text" placeholder="Nome" ng-model="company.name"/></div>
+	<div class="input-container"><input type="text" placeholder="Nome Negozio" ng-model="company.shop_name"/></div>
+	<div class="input-container"><input type="text" placeholder="Indirizzo" ng-model="company.address"/></div>
+	<div class="input-container"><input type="text" placeholder="Partita Iva" ng-model="company.pi"/></div>
+	<div class="input-container"><input type="text" placeholder="Codice Fiscale" ng-model="company.fiscal_code"/></div>
+	<div class="input-container"><input type="text" placeholder="CAP" ng-model="company.zip_code"/></div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
