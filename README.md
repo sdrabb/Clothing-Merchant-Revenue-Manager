@@ -1,5 +1,5 @@
-# Invoice Hub
-Italian clothing merchant invoice manager built with **NodeJS** + **AngularJS** + **Bootstrap** + **Express**
+# Clothing Merchant Revenue Manager
+Italian clothing merchant invoices manager built with **NodeJS** + **AngularJS** + **Bootstrap** + **Express**
 
 ## Requirements:
 - install **npm** and **NodeJs** and install packages.json via: `npm install`
