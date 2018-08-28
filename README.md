@@ -1,5 +1,5 @@
 # Clothing Merchant Revenue Manager
-Italian clothing merchant invoices manager built with **NodeJS** + **AngularJS** + **Bootstrap** + **Express**
+Italian clothing merchant invoices manager built with **NodeJS** + **AngularJS** + **Bootstrap** + **Express** + **Mongodb**
 
 ## Requirements:
 - install **npm** and **NodeJs** and install packages.json via: `npm install`
